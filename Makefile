@@ -10,8 +10,6 @@ all: $(ALL)
 
 hello: hello.cpp Makefile
 	$(CXX) $(CXXFLAGS) -o $@ $@.cpp
-	gcov $@
-	valgrind $@
 
 clean:
 	$(RM) $(ALL) *.o
