@@ -2,7 +2,7 @@
 # For more languages and info see:
 # https://github.com/rsp/travis-hello#readme
 
-CXXFLAGS = -g -Wall -Wfatal-errors -std=c++14
+CXXFLAGS = -g -Wall -Wfatal-errors -std=c++14 -fprofile-arcs -ftest-coverage
 
 ALL = hello
 
@@ -10,6 +10,8 @@ all: $(ALL)
 
 hello: hello.cpp Makefile
 	$(CXX) $(CXXFLAGS) -o $@ $@.cpp
+	gcov $@
+	valgrind $@
 
 clean:
 	$(RM) $(ALL) *.o
