@@ -19,6 +19,10 @@ fail() {
 
 t program should run
 ./hello >/dev/null 2>&1 && pass || fail
+t gcov should cover 100%
+gcov hello
+t valgrind 
+valgrind ./hello
 t program should print Hello
 cmp <(./hello) <(echo Hello) && pass || fail
 
